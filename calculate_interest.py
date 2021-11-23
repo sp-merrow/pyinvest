@@ -19,11 +19,13 @@ for i in range(1, years+1):
     if i % 12 == 0:
         invested += (invested * yearlyGrowth)
         invested += (dividend * shares)
-        payouts.append( f'Account total after {int(i/12)} year(s): ${round(invested, 2)}' )
+        payouts.append( f'Account total after {int(i/12)} year(s): ${round(invested, 2):,}' )
 
 clear()
-print(f'Starting account value: ${round(starting, 2)}')
-print(f'Total in account after {int(years/12)} year(s): ${round(invested, 2)}')
+roundedStart = round(starting, 2)
+roundedTotal = round(invested, 2)
+print(f'Starting account value: ${roundedStart:,}')
+print(f'Total in account after {int(years/12)} year(s): ${roundedTotal:,}')
 conf = input('\nShow yearly account values? (y/n): ')
 if conf == 'y':
     print('\n')
